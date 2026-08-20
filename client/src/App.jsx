@@ -8,7 +8,7 @@ export default function DSATracker() {
 
   // Fetch weekend reminders
   const fetchReminders = () => {
-    fetch('http://localhost:5000/api/reminders')
+    fetch(`${import.meta.env.VITE_BACKEND_URL}api/reminders`)
       .then((res) => res.json())
       .then((data) => setReminders(data))
       .catch((err) => console.error('Error fetching reminders:', err));
