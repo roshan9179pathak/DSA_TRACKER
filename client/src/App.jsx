@@ -24,7 +24,7 @@ export default function DSATracker() {
     if (!titleOrId.trim()) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/questions', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/questions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titleOrId, platform }),
@@ -43,7 +43,7 @@ export default function DSATracker() {
   // Handle Snooze logic (1 Day or 7 Days)
   const handleSnooze = async (id, days) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/questions/${id}/snooze`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/${id}/snooze`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ days }),
