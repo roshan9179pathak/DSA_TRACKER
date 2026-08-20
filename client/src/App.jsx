@@ -24,7 +24,7 @@ export default function DSATracker() {
     if (!titleOrId.trim()) return;
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}questions`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/questions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titleOrId, platform }),
